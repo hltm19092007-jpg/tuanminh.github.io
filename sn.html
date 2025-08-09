@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <style>    
+body {
+    background-image: url(bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat
+    }
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap');
+form {
+    background-color: rgba(255, 192, 203, 0.8); /* nền hồng nhạt trong suốt */
+    border-radius: 20px;
+    border: 2px solid #fff0f5;
+    box-shadow: 0 10px 20px rgba(255, 105, 180, 0.3);
+    padding: 30px;
+    font-family: 'Patrick Hand', cursive;
+    width: 60%;
+}
+
+label {
+    color: #d63384;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    margin-bottom: 15px;
+}
+
+input[type="password"] {
+    border-radius: 15px;
+    width: 10px;
+    border: 2px solid #f8c8dc;
+    transition: all 0.3s ease-in-out;
+    font-size: 18px;
+    background-color: #fff0f5;
+
+}
+
+input[type="password"]:focus {
+    width: 300px;
+    outline: none;
+    border-color: hotpink;
+    box-shadow: 0 0 10px hotpink;
+}
+
+input[type="submit"] {
+    background-color: #d63384;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+    align-items: center;
+}
+
+input[type="submit"]:hover {
+    background-color: #ff69b4;
+}
+label {
+    color: #d63384;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    margin-bottom: 15px;
+}
+   
+@keyframes rơi{
+    from {top:-50px; opacity: 1;}
+    to{top: 100vh; opacity: 0;}
+    }
+.heart{
+    animation: rơi 3s ease 0s infinite;
+    position:absolute;
+    width: 40px;
+    height: 40px;
+        }
+#hehe {
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: opacity 1s ease, visibility 1s ease, pointer-events 1s ease;
+    font-size: 50px;
+    font-family: 'Leckerli One', cursive;
+    color: #FF9587;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    width: 100vw;
+}
+#lala {
+    display: flex;
+    flex-direction: row-reverse;
+    position: absolute;
+    opacity: 1;
+    pointer-events: none;
+    visibility:visible;
+    height: 80vh;
+    width:50vw;
+    left: -100%;
+    transition: left 2s ease-in;
+    row-gap: 5px;
+}
+.leuleu1 {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    flex: 40%;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    height: 100vh;
+}
+.leuleu {
+    display: flex;
+    flex: 1;
+    float: right;
+}
+#qa1,#qa2,#qa3,#qa4 {
+    width: 100%;
+    transition: opacity 1s ease 2s; visibility: 1s ease 2s;
+    font-family: 'Leckerli One', cursive;
+    color: #FF9587;
+    font-size: 30px;
+    text-shadow: 2px 2px 5px orange;
+}
+    </style>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+</head>
+<body>
+<div id = "haha" style="display:flex;justify-content: center;align-items: center;height:100vh">
+<form onsubmit="return nhapmk(event)" style="display: flex;align-items: center;flex-direction: column;">
+<label for="nqa">Nhập biệt danh mà anh đặt cho bé trong tài khoản ngân hàng để tiếp tục</label><br>
+<input type="password" id="nqa" name="mk"><br>
+<input type="submit" value="Submit"><br>
+<p id="loi" style="font-size: 20px;font-family: 'Inter';text-align: center;"></p>
+</form>
+</div>
+<div id="hehe" tabindex="-1">Chào mừng bé đến với thế giới nhỏ dành riêng cho bé</div>
+<script>
+    function tim() {
+        qa = document.createElement("div");
+        qa.textContent = "💖";
+        qa.classList.add("heart");
+        qa.style.left= Math.random()*window.innerWidth + "px";
+        document.body.appendChild(qa);
+
+    }
+    setInterval(tim, 1000)
+</script>
+<script>
+    function nhapmk(event) {
+        event.preventDefault();
+        let x = document.getElementById("nqa").value;
+        if (x == "convogiatruong" || x=="CONVOGIATRUONG" || x=="Convogiatruong" ){
+            document.getElementById("haha").style.display= "none";
+            setTimeout(doi,10)
+            document.getElementById("hehe").style.opacity= "1";
+            document.getElementById("hehe").style.visibility="visible";
+            document.getElementById("hehe").style.pointerEvents="auto";
+        }
+        else{
+            document.getElementById("loi").innerHTML="Sai rồi bé iu";
+        }
+        return false
+    }
+    let y = 0;
+    document.getElementById("hehe").addEventListener("keydown", tiep)
+    function tiep() {
+        y++;
+        if(y == 1) {
+        document.getElementById("hehe").innerText="Bắt đầu thoi nào";
+    }
+        if(y == 2) {
+           document.getElementById("hehe").style.display = "none" 
+           setTimeout(hienanh,100)
+           
+           }
+        }  
+    
+    function doi() {
+        document.getElementById("hehe").focus()
+    }
+    function hienanh() {
+        document.getElementById("lala").style.left="30%";
+        for(i=0;i<4;i++){
+            setTimeout(hienchu , i*3000)
+        }
+    }
+    let g = 0
+    function hienchu() {
+        g++;
+        if (g==1) {
+            document.getElementById("qa1").style.opacity="1";
+            document.getElementById("qa1").style.visibility="visible";
+        }
+        if(g==2) {
+            document.getElementById("qa2").style.opacity="1";
+            document.getElementById("qa2").style.visibility="visible";
+        }
+        if(g==3){
+            document.getElementById("qa3").style.opacity="1";
+            document.getElementById("qa3").style.visibility="visible";
+        }
+        if(g==4) {
+            document.getElementById("qa4").style.opacity="1";
+            document.getElementById("qa4").style.visibility="visible";
+
+        }
+    }
+
+</script>
+<div id="lala">
+<div class="leuleu">
+<img src="qa.jpg" alt="ảnh1" style="height: 100vh; width: 28vw; border-radius: 30px;border-color: #fff0f5;border-width: 10px; box-shadow: 5px 5px 10px lightblue ;">
+</div>
+<div class="leuleu1">
+<p id = "qa1" style="opacity : 0; visibility: hidden;" >Họ và tên: Nguyễn Quỳnh Anh</p>
+<p id = "qa2" style="opacity : 0; visibility: hidden;">Ngày sinh:30/8/2007</p>
+<p id = "qa3" style="opacity : 0; visibility: hidden;">Chiều cao: ≈ 1m50</p>
+<p id = "qa4" style="opacity : 0; visibility: hidden;">Là người thích đi show và bắt nạt ngiu</p>
+</div>
+</div>
+</body>
+
