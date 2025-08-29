@@ -3,17 +3,18 @@
 <head>
     <link rel="stylesheet" href="style.css">
     <style>    
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap');
 body {
     background-image: url(bg.jpg);
     background-size: cover;
-    background-repeat: no-repeat
-    background-position: center;
-    min-height: 100vh; 
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    background-position: center;  
     }
-@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap');
 form {
-    background-color: rgba(255, 192, 203, 0.8); /* nền hồng nhạt trong suốt */
+    background-color: rgba(255, 192, 203, 0.8); 
     border-radius: 20px;
     border: 2px solid #fff0f5;
     box-shadow: 0 10px 20px rgba(255, 105, 180, 0.3);
@@ -72,16 +73,53 @@ label {
     display: block;
     margin-bottom: 15px;
 }
+.shake {
+    animation: shake 0.4s ease;
+}
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-in-left {
+    animation: slideInLeft 1s ease forwards;
+}
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.slide-in-right {
+    animation: slideInRight 1s ease forwards;
+}
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.shake {
+    animation: shake 0.4s ease;
+}
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-8px); }
+    40%, 80% { transform: translateX(8px); }
+}
+
    
-@keyframes rơi{
-    from {top:-50px; opacity: 1;}
-    to{top: 100vh; opacity: 0;}
-    }
+@keyframes roi {
+    from { top: 0; opacity: 1; transform: rotate(0deg) scale(1); }
+    to { top: 100vh; opacity: 0; transform: rotate(360deg) scale(0.8); }
+}
 .heart{
-    animation: rơi 3s ease 0s infinite;
+    animation: roi 3s ease-in infinite;
     position:absolute;
     width: 40px;
     height: 40px;
+    pointer-events: none;
         }
 #hehe {
     display: flex;
@@ -110,11 +148,12 @@ label {
     height: 80vh;
     width:50vw;
     left: -100%;
-    transition: left 2s ease-in;
+    transition: left 1s ease-in, visibility 2s ease-in-out;
     row-gap: 5px;
 }
 .leuleu1 {
     display: flex;
+    visibility: visible;
     flex-direction: column;
     padding: 5px;
     flex: 40%;
@@ -125,6 +164,7 @@ label {
     border: 1px solid rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(10px);
     height: 100vh;
+    transition: visibility 2s ease-in-out;
 }
 .leuleu {
     display: flex;
@@ -133,19 +173,600 @@ label {
 }
 #qa1,#qa2,#qa3,#qa4 {
     width: 100%;
-    transition: opacity 1s ease 2s; visibility: 1s ease 2s;
+    transition: opacity 1s ease 2s, visibility 1s ease 2s;
     font-family: 'Leckerli One', cursive;
     color: #FF9587;
     font-size: 30px;
-    text-shadow: 2px 2px 5px orange;
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.6);
 }
-    </style>
+.bobo {
+    left:-100%;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100vh;
+    float: right;
+    margin-right: 30px;
+    width: 30vw;
+    transition: left 2s ;
+}
+#bla {   
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 2s ease, visibility 2s ease;
+    font-size: 50px;
+    font-family: 'Leckerli One', cursive;
+    color: #FF9587;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    width: 100vw;
+}
+#blo {
+    display: grid;
+    position: absolute;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: auto auto;
+    opacity: 0;
+    visibility: hidden;
+    gap: 10px;
+    transition: opacity 2s ease, visibility 2s ease;
+    max-width: 90vw;
+    max-height: 100vh;
+}
+#ble, #bli, #bly, #blt, #blr,
+#mn_02, #mn_03, #mn_04, #mn_05, #mn_06, #mn_07 {
+    display: grid;
+    position: absolute;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    opacity: 0;
+    visibility: hidden;
+    gap: 10px;
+    transition: opacity 2s ease, visibility 2s ease;
+    max-width: 90vw;
+    max-height: 100vh;
+}
 
+#anh1, #anh2, #anh3, #anh4, #anh5, #anh6,
+#anh7, #anh8, #anh9, #anh10, #anh11, #anh12,
+#anh13, #anh14, #anh15, 
+#anh16, #anh17, #anh18,
+#anh19, #anh20, #anh21,
+#anh22, #anh23, #anh24,
+#anh25, #anh26, #anh27,
+#anh28, #anh29, #anh30,
+#anh31, #anh32, #anh33 {
+    grid-column: span 1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+#anh1 img, #anh2 img, #anh3 img, #anh4 img, #anh5 img, #anh6 img,
+#anh7 img, #anh8 img, #anh9 img, #anh10 img, #anh11 img, #anh12 img,
+#anh13 img, #anh14 img, #anh15 img, 
+#anh16 img, #anh17 img, #anh18 img,
+#anh19 img, #anh20 img, #anh21 img,
+#anh22 img, #anh23 img, #anh24 img,
+#anh25 img, #anh26 img, #anh27 img,
+#anh28 img, #anh29 img, #anh30 img,
+#anh31 img, #anh32 img, #anh33 img {
+    width: auto; 
+    height: 80vh; 
+    object-fit: contain; 
+    border-radius: 10px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+}
+#t1, #t2, #t3, #t4, #t5, #t6, #t7, #t8, #t9, 
+#t10, #t11, #t12 {
+    grid-column: 1/span 3;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 
+                 'Lucida Grande', 'Lucida Sans Unicode', 
+                 Geneva, Verdana, sans-serif;
+    color: #ff69b4;
+}
+#tren {
+    width: 100%;
+    height: 55%;
+    top:-100%;
+    position: fixed;
+    z-index: 9999;
+    background-color: black;
+    transition: all 2s ease-in-out;
+    left: 0;
+}
+#duoi {
+    width: 100%;
+    left: 0;
+    height: 55%;
+    bottom:-100%;
+    position: fixed;
+    z-index: 9999;
+    background-color: black;
+    transition: all 2s ease-in-out;
+}
+.close #tren {
+    top: 0;
+}
+.close #duoi {
+    bottom: 0;
+}
+.sao {
+    position: fixed;
+    bottom: -30px;
+    font-size: 50px;
+    color: white;
+    animation:lantoa  linear forwards, laclu ease-in forwards;
+    z-index: 100000;
+}
+
+@keyframes lantoa {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+    filter: blur(0px);
+  }
+  10% {
+    transform: scale(3);  
+    opacity: 1;
+    filter: blur(1px);
+  }
+  30% {
+    transform: scale(5);
+    opacity:1;
+    filter: blur(3px);
+  }
+  100% {
+    transform: scale(7); 
+    opacity: 0;
+    filter: blur(10px);
+  }
+}
+
+@keyframes laclu {
+  0%   { transform: translateX(0) translateY(0) }
+  25%  { transform: translateX(var(--a)) translateY(var(--b))  }
+  50%  { transform: translateX(var(--c))  translateY(var(--d))  }
+  75%  { transform: translateX(var(--e)) translateY(var(--f))  }
+  100% { transform: translateX(var(--g))  translateY(var(--h))  }
+}
+#newbackground {
+    background-color: black;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
+    z-index: 100001;
+    opacity:0;
+    visibility: hidden;
+    position:fixed;
+    transition: background-color 2s, opacity 2s;
+}
+.mattrang {
+    top:-20%;
+    left :20%;
+    font-size: large;
+    position: fixed;
+    animation: trangroi 5s linear forwards;
+    cursor: pointer;
+    z-index: 110000;
+}
+@keyframes trangroi {
+    0% { top : -20%; left:20%}
+    70% { top : 80%; left: 30% }
+    85% { top :70%; left :35%}
+    100% { top : 80%; left :37%}
+}
+.book {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow: hidden;
+  margin: auto;
+  opacity: 0;
+  visibility: hidden;
+  background: #d9c9a9;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: 120000;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 3s ease, visibility 3s;
+}
+
+.page {
+  flex: 1;
+  padding: 20px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #f9f6ef 0px,
+    #f9f6ef 28px,
+    #d9d4c7 29px
+  );
+}
+.page.right {
+  border-left: 2px solid #a18f72;
+  
+}
+.page.left {
+  border-right: 2px solid #a18f72; 
+}
+.book {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.8) rotateY(20deg);
+    transition: opacity 1.5s, visibility 1.5s, transform 1s cubic-bezier(.25,.8,.25,1);
+}
+.book.open {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1) rotateY(0deg);
+}
+.page {
+    box-shadow: 0 8px 32px rgba(111, 174, 216, 0.15);
+    border-radius: 12px;
+    background: repeating-linear-gradient(
+        to bottom,
+        #f9f6ef 0px,
+        #f9f6ef 28px,
+        #d9d4c7 29px
+    );
+    transition: box-shadow 0.5s;
+}
+.page.left, .page.right {
+    animation: pageFadeIn 1.2s;
+}
+@keyframes pageFadeIn {
+    from { opacity: 0; transform: translateY(40px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+.content {
+    text-shadow: 0 2px 8px #ffeef8;
+    transition: text-shadow 0.5s;
+}
+
+.content {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 29px;
+  line-height: 1.8;
+  white-space: normal;   
+  word-wrap: break-word;
+}
+body.noscroll {
+    overflow: hidden ;
+    height: 100vh ;
+    width: 100vw ;
+}
+.confetti {
+    width: 20px;
+    height: 30px;
+    animation: ban 3s;
+    z-index: 130000;
+    position: fixed;
+}
+@keyframes ban {
+    0% { left: 50%; bottom: -20%;}
+    50% { left : var(--j); bottom: var(--l);}
+    100% { left : var(--k); bottom: -100%;}
+}
+#bv {
+    display: flex;
+    position: fixed;
+    top :40%;
+    left: 50%;       
+    transform: translateX(-50%);
+    justify-content: center;
+    font-family: 'Leckerli One', cursive;
+    font-size: 40px;
+    color: #ff69b4;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 140000;
+    transition: opacity 2s ease, visibility 2s ease;
+}
+#bv1 {
+    display: flex;
+    position: fixed;
+    top :55%;
+    left: 50%;       
+    transform: translateX(-50%);
+    justify-content: center;
+    font-family: 'Leckerli One', cursive;
+    font-size: 30px;
+    color:#FF9587;
+    z-index: 140000;
+    transition: opacity 2s ease, visibility 2s ease;
+}
+#question {
+    z-index: 160000; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column; 
+    opacity: 0; 
+    visibility: hidden; 
+    transition: opacity 2s ease, visibility 2s ease;
+}
+#q1, #q2, #q3, #q4, #q5 {
+    font-size: 22px;
+    font-style: normal;
+    z-index: 160000;
+    margin: 40px auto;
+    width: 70vw;
+    max-width: 600px;
+    min-height: 350px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border: 2px solid #d9c9a9;
+    border-radius: 24px;
+    padding: 32px 28px;
+    box-shadow: 0 8px 32px rgba(111, 174, 216, 0.15);
+    backdrop-filter: blur(16px);
+    background: linear-gradient(135deg, #ffeef8 60%, #f0f0ff 100%);
+    color: #333;
+    transition: box-shadow 0.3s, border 0.3s;
+}
+
+#q1:hover, #q2:hover, #q3:hover, #q4:hover, #q5:hover {
+    box-shadow: 0 12px 40px rgba(111, 174, 216, 0.25);
+    border: 2px solid #6faed8;
+}
+
+#q1 p, #q2 p, #q3 p, #q4 p, #q5 p {
+    font-size: 26px;
+    font-weight: bold;
+    color: #d63384;
+    margin-bottom: 18px;
+    font-family: 'Leckerli One', cursive;
+}
+#ket {
+    left: 30%;
+    top: auto;
+    position: fixed;
+    z-index: 400000;
+    font-size: 32px;
+    color: #d63384; 
+    font-family: 'Leckerli One', cursive, sans-serif;
+    text-align: center;
+    line-height: 1.5;
+    margin: 60px auto;
+    max-width: 700px;
+    text-shadow: 
+        0 0 5px rgba(214, 51, 132, 0.6),
+        0 0 10px rgba(214, 51, 132, 0.5),
+        0 0 20px rgba(255, 105, 180, 0.4);
+    letter-spacing: 1px;
+    white-space: normal;       
+    overflow-wrap: break-word;
+    word-wrap: break-word
+}
+#q1 label, #q2 label, #q3 label, #q4 label, #q5 label {
+    font-size: 20px;
+    color: #6faed8;
+    margin-bottom: 10px;
+    font-family: 'Patrick Hand', cursive;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+#q1 label:hover, #q2 label:hover, #q3 label:hover, #q4 label:hover, #q5 label:hover {
+    color: #d63384;
+}
+
+#q1 input[type="checkbox"], #q2 input[type="checkbox"], #q3 input[type="checkbox"], #q4 input[type="checkbox"], #q5 input[type="checkbox"] {
+    margin-right: 10px;
+    accent-color: #d63384;
+    transform: scale(1.2);
+}
+
+#q1 input[type="button"], #q2 input[type="button"], #q3 input[type="button"], #q4 input[type="button"], #q5 input[type="button"], #q5 button {
+    margin-top: 18px;
+    padding: 8px 20px;
+    border-radius: 12px;
+    border: none;
+    background: #6faed8;
+    color: #fff;
+    font-size: 18px;
+    font-family: 'Patrick Hand', cursive;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(111, 174, 216, 0.15);
+    transition: background 0.2s;
+}
+
+#q1 input[type="button"]:hover, #q2 input[type="button"]:hover, #q3 input[type="button"]:hover, #q4 input[type="button"]:hover, #q5 input[type="button"]:hover, #q5 button:hover {
+    background: #d63384;
+}
+
+#q5 textarea {
+    width: 100%;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 1.5px solid #d9c9a9;
+    padding: 12px;
+    margin-bottom: 10px;
+    font-family: 'Patrick Hand', cursive;
+    background: #fff0f5;
+    resize: vertical;
+    box-shadow: 0 2px 8px rgba(111, 174, 216, 0.08);
+}
+
+#q5 p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 8px;
+}
+#q1 {
+    display: flex;
+}
+#q2,#q3,#q4,#q5 {
+    display: none;
+    transition: all 2s ease-in-out;
+}
+#gift-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 200000;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  gap: 15px; 
+  background: #ffe6f0;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease, visibility 1s ease;
+}
+
+#summary {
+  font-size: 18px;
+  color: #a82a69;
+    max-height: 300px;   
+    overflow-y: auto;
+    white-space: pre-line; 
+}
+#sumary {
+  font-size: 28px;
+  color: #b73676;
+  font-weight: bold;
+      max-height: 300px;   /* hoặc giá trị bạn muốn */
+    overflow-y: auto;
+    white-space: pre-line; /* giữ xuống dòng */
+}
+
+
+#nutqua {
+  top: 120%;
+  padding: 12px 28px;
+  border-radius: 12px;
+  border: none;
+  background: #4cbec6;
+  color: #fff;
+  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(76, 190, 198, 0.3);
+  transition: background 0.25s, transform 0.2s, opacity 1s ease, visibility 1s ease;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 250000;
+  position: fixed;
+  pointer-events: none;
+}
+#nutqua:hover {
+  background: #38a4ab;
+  transform: scale(1.05);
+}
+#qua1, #qua2, #qua3 {
+
+  width: 20vw;
+  height: 70vh;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4); 
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition:transform 0.3s ease, box-shadow 0.3s ease, opacity 1s ease, visibility 1s ease;
+  margin: 20px;
+  gap: 20px;;
+  z-index: 300000;
+  top: -100%;
+  position: absolute;
+  
+}
+#qua1 {
+  left: 15vw;
+}
+#qua2 {
+  left: 40vw;
+}
+#qua3 {
+  left: 65vw;
+}
+.piece {
+  top: -100%;
+  position: absolute;
+  border-radius: 15px;
+  width: 50%;
+  height: 50%;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4); 
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  z-index: 299999;
+}
+.top-left { top: 0; left: 0; }
+.top-right { top: 0; right: 0; }
+.bottom-left { bottom: 0; left: 0; }
+.bottom-right { bottom: 0; right: 0; }
+
+@keyframes roixuong {
+    0% { top:-100%;}
+    60% { top:30%;}
+    80% { top:25%;}
+    100% { top:30%;}
+}
+@keyframes fly-top-left {
+  0%   { transform: translate(0,0) rotate(0deg); opacity: 1; }
+  80%  { transform: translate(-320px, -320px) rotate(-600deg); opacity: 1; }
+  100% { transform: translate(-400px, -400px) rotate(-720deg); opacity: 0; }
+}
+@keyframes fly-top-right {
+  0%   { transform: translate(0,0) rotate(0deg); opacity: 1; }
+  80%  { transform: translate(320px, -320px) rotate(600deg); opacity: 1; }
+  100% { transform: translate(400px, -400px) rotate(720deg); opacity: 0; }
+}
+@keyframes fly-bottom-left {
+  0%   { transform: translate(0,0) rotate(0deg); opacity: 1; }
+  80%  { transform: translate(-320px, 320px) rotate(600deg); opacity: 1; }
+  100% { transform: translate(-400px, 400px) rotate(720deg); opacity: 0; }
+}
+@keyframes fly-bottom-right {
+  0%   { transform: translate(0,0) rotate(0deg); opacity: 1; }
+  80%  { transform: translate(320px, 320px) rotate(-600deg); opacity: 1; }
+  100% { transform: translate(400px, 400px) rotate(-720deg); opacity: 0; }
+}
+#qua1:hover, #qua2:hover, #qua3:hover {
+  transform: translateY(-10px), scale(1.2);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+    </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
 </head>
 <body>
 <div id = "haha" style="display:flex;justify-content: center;align-items: center;height:100vh">
-<form onsubmit="return nhapmk(event)" style="display: flex;align-items: center;flex-direction: column;">
+<form id="loginForm" onsubmit="return nhapmk(event)" style="display: flex;align-items: center;flex-direction: column;">
 <label for="nqa">Nhập biệt danh mà anh đặt cho bé trong tài khoản ngân hàng để tiếp tục</label><br>
 <input type="password" id="nqa" name="mk"><br>
 <input type="submit" value="Submit"><br>
@@ -155,16 +776,55 @@ label {
 <div id="hehe" tabindex="-1">Chào mừng bé đến với thế giới nhỏ dành riêng cho bé</div>
 <script>
     function tim() {
-        qa = document.createElement("div");
-        qa.textContent = "💖";
-        qa.classList.add("heart");
-        qa.style.left= Math.random()*window.innerWidth + "px";
-        document.body.appendChild(qa);
-
+        let mama= document.createElement("div");
+        mama.textContent = "💖";
+        mama.classList.add("heart");
+        mama.style.left= Math.random()*window.innerWidth + "px";
+        mama.style.animationDelay = (Math.random()*3) + "s";
+        document.body.appendChild(mama);
     }
-    setInterval(tim, 1000)
-</script>
-<script>
+    setInterval(tim, 1500)
+    function banconfetti() {
+        for(let i = 0; i < 50;i++) {
+            a = document.createElement("div");
+            a.classList.add("confetti");
+            let colors = ["#00FFFF", "#DC143C", "#FF1493", "#00BFFF", "#ADFF2F", "#FFFACD", "#000080", "#FFFF00"];
+            a.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
+            a.style.setProperty("--j", (Math.random()*100) + "%");
+            a.style.setProperty("--k", (Math.random()*100) + "%");
+            a.style.setProperty("--l", (Math.random()*100) + "%");
+            document.body.appendChild(a)
+            a.addEventListener("animationend", (m) => {if (m.animationName === "ban"){a.remove()}}   )     }
+    }
+    let tungtung = true;
+    let starcount = 0;
+    let speed = 5;
+    const maxstar = 3000
+    function sao1() {
+        if (!tungtung) return;
+        if (starcount >= maxstar) {
+        setTimeout(sao1, 200); 
+        return;
+    }
+        let s = document.createElement("div");
+        s.style.setProperty("--a", (Math.random() * 200 - 100) + "px"); 
+        s.style.setProperty("--b", (-100 + Math.random() * 99) + "vh");
+        s.style.setProperty("--c", (Math.random() * 200 - 100) + "px"); 
+        s.style.setProperty("--d", (-100 + Math.random() * 99) + "vh");
+        s.style.setProperty("--e", (Math.random() * 200 - 100) + "px"); 
+        s.style.setProperty("--f", (-100 + Math.random() * 99) + "vh");
+        s.style.setProperty("--g", (Math.random() * 200 - 100) + "px"); 
+        s.style.setProperty("--h", (-100 + Math.random() * 99) + "vh");
+        s.textContent = " ✧ ";
+        s.classList.add("sao");
+        s.style.left = Math.random()*window.innerWidth + "px";
+        s.style.animationDuration = speed +"s";
+        document.body.appendChild(s);
+        starcount++;
+        s.addEventListener("animationend", (e) => {if (e.animationName === "laclu") {s.remove();starcount--;}});
+        let delay = Math.max(10, 1000 - starcount * 100);
+        setTimeout(sao1, delay);
+    }
     function nhapmk(event) {
         event.preventDefault();
         let x = document.getElementById("nqa").value;
@@ -177,6 +837,9 @@ label {
         }
         else{
             document.getElementById("loi").innerHTML="Sai rồi bé iu";
+            let form = document.getElementById("loginForm");
+            form.classList.add("shake");
+            setTimeout(()=>form.classList.remove("shake"), 400);
         }
         return false
     }
@@ -190,7 +853,6 @@ label {
         if(y == 2) {
            document.getElementById("hehe").style.display = "none" 
            setTimeout(hienanh,100)
-           
            }
         }  
     
@@ -199,9 +861,25 @@ label {
     }
     function hienanh() {
         document.getElementById("lala").style.left="30%";
-        for(i=0;i<4;i++){
+        document.getElementById("lala").classList.add("slide-in-left");
+        document.getElementById("lala").classList.add("fade-in")
+        for(let i=0;i<4;i++){
             setTimeout(hienchu , i*3000)
         }
+        setTimeout(tiep1,4*3000 + 1000)
+        setTimeout(tiep2,4*3000 + 1000 + 2000)
+        setTimeout(tiep3,4*3000 + 6000 )
+        setTimeout(tiep4,4*3000 + 9000 )
+        setTimeout(tiep5,4*3000+ 12000)
+        setTimeout(tiep6,4*3000 + 15000)
+        setTimeout(tiep7, 4*3000 + 18000);
+        setTimeout(tiep8, 4*3000 + 21000);
+        setTimeout(tiep9, 4*3000 + 24000);
+        setTimeout(tiep10, 4*3000 + 27000);
+        setTimeout(tiep11, 4*3000 + 30000);
+        setTimeout(tiep12, 4*3000 + 33000);
+        setTimeout(end, 4*3000 +36000);
+
     }
     let g = 0
     function hienchu() {
@@ -224,7 +902,170 @@ label {
 
         }
     }
+    function tiep1() {
+        document.getElementById("lala").style.left = "-100%";
+        document.getElementById("bla").style.opacity = "1";
+        document.getElementById("bla").style.visibility = "visible";
+    }
+    function tiep2() {
+        document.getElementById("bla").style.opacity = "0";
+        document.getElementById("bla").style.visibility = "hidden";
+        document.getElementById("blo").style.opacity="1";
+        document.getElementById("blo").style.visibility="visible";
 
+    }
+    function tiep3() {
+        document.getElementById("blo").style.opacity = "0";
+        document.getElementById("blo").style.visibility = "hidden"
+        document.getElementById("ble").style.opacity="1";
+        document.getElementById("ble").style.visibility="visible";
+    }
+    function tiep4() {
+        document.getElementById("ble").style.opacity = "0";
+        document.getElementById("ble").style.visibility = "hidden";
+        document.getElementById("bli").style.opacity = "1";
+        document.getElementById("bli").style.visibility = "visible";
+}
+    function tiep5() {
+        document.getElementById("bli").style.opacity = "0";
+        document.getElementById("bli").style.visibility = "hidden";
+        document.getElementById("bly").style.opacity = "1";
+        document.getElementById("bly").style.visibility = "visible";
+}
+function tiep6() {
+    document.getElementById("bly").style.opacity = "0";
+    document.getElementById("bly").style.visibility = "hidden";
+    document.getElementById("blt").style.opacity = "1";
+    document.getElementById("blt").style.visibility = "visible";
+}
+
+function tiep7() {
+    document.getElementById("blt").style.opacity = "0";
+    document.getElementById("blt").style.visibility = "hidden";
+    document.getElementById("mn_02").style.opacity = "1";
+    document.getElementById("mn_02").style.visibility = "visible";
+}
+
+function tiep8() {
+    document.getElementById("mn_02").style.opacity = "0";
+    document.getElementById("mn_02").style.visibility = "hidden";
+    document.getElementById("mn_03").style.opacity = "1";
+    document.getElementById("mn_03").style.visibility = "visible";
+}
+
+function tiep9() {
+    document.getElementById("mn_03").style.opacity = "0";
+    document.getElementById("mn_03").style.visibility = "hidden";
+    document.getElementById("mn_04").style.opacity = "1";
+    document.getElementById("mn_04").style.visibility = "visible";
+}
+
+function tiep10() {
+    document.getElementById("mn_04").style.opacity = "0";
+    document.getElementById("mn_04").style.visibility = "hidden";
+    document.getElementById("mn_05").style.opacity = "1";
+    document.getElementById("mn_05").style.visibility = "visible";
+}
+
+function tiep11() {
+    document.getElementById("mn_05").style.opacity = "0";
+    document.getElementById("mn_05").style.visibility = "hidden";
+    document.getElementById("mn_06").style.opacity = "1";
+    document.getElementById("mn_06").style.visibility = "visible";
+}
+
+function tiep12() {
+    document.getElementById("mn_06").style.opacity = "0";
+    document.getElementById("mn_06").style.visibility = "hidden";
+    document.getElementById("mn_07").style.opacity = "1";
+    document.getElementById("mn_07").style.visibility = "visible";
+}
+function end() {
+    document.body.classList.add("close");
+    setTimeout(sao1,2000);
+    setTimeout(() => {tungtung = false;} , 15000);
+    setTimeout(doinen,13000);
+    setTimeout(roitrang,17000)
+}
+function doinen() {
+    document.getElementById("newbackground").style.backgroundColor = "white";
+    document.getElementById("newbackground").style.opacity="1";
+    document.getElementById("newbackground").style.visibility="visible";
+}
+function roitrang() {
+    let m = document.createElement("div");
+    m.textContent = " 🌕";
+    m.classList.add("mattrang");
+    document.body.appendChild(m);
+    m.addEventListener("click",sach);
+}
+function sach() {
+   document.body.classList.add("noscroll");
+   let m = document.querySelectorAll(".heart");
+   m.forEach((h) =>{ h.style.zIndex = "500000";})
+   let book = document.querySelector(".book");
+   book.style.opacity = "1";
+   book.style.visibility = "visible";
+   book.classList.add("open");
+   setTimeout(() => {vietchu(message1, 'typingg', speed = 100);}, 3000);
+   setTimeout(() => {vietchu(message2,'typing',speed = 100);}, 16000);
+   setTimeout(quiz, 31000);
+}
+function vietchu(mes,eid,speed=100) {
+    document.body.classList.add("noscroll");
+    let words = mes.split(" ");  
+    let i = 0;
+    let a = document.getElementById(eid);
+    a.textContent = "";
+    function chuviet() {
+        if( i < words.length) {
+            a.textContent += (i > 0 ? " " : "") + words[i];
+            i++;
+            setTimeout(chuviet, speed);
+        }
+    }
+    chuviet();
+}
+function quiz() {
+    document.body.classList.add("noscroll");
+    banconfetti();
+    setTimeout(chuvietbv1, 2000);
+    let book = document.querySelector(".book")
+    book.style.opacity="0";
+    book.style.visibility="hidden";
+    document.querySelector(".mattrang").style.display = "none";
+    let m = document.getElementById("bv");
+    m.style.visibility = "visible";
+    m.style.opacity = "1";
+    let bv1 = document.getElementById("bv1");
+    bv1.textContent = "";
+    let words = message3.split(" ");
+    let i = 0;
+    function chuvietbv1() {
+        if (i < words.length) {
+            bv1.textContent += (i > 0 ? " " : "") + words[i];
+            i++;
+            setTimeout(chuvietbv1, 100);
+        }
+        else {
+            setTimeout(cauhoi, 2000);
+        }
+    }
+}
+function cauhoi() {
+    document.getElementById("bv").style.visibility="hidden";
+    document.getElementById("bv").style.opacity="0";   
+    document.getElementById("bv1").style.visibility="hidden";
+    document.getElementById("bv1").style.opacity="0";
+    let q = document.getElementById("question");
+    q.style.display = "flex";  
+    q.style.visibility = "visible";
+    q.style.opacity = "1";
+    document.getElementById("newbackground").style.backgroundColor= "linear-gradient(135deg, #ffeef8, #ffffff)"
+}
+let message1 = 'Bé yêu của anh, Vậy là bé của anh cũng đã bước sang tuổi 18 – tuổi trưởng thành, tuổi bắt đầu phải đối mặt với thật nhiều thử thách trong cuộc sống. Anh chỉ mong mình có thể gánh vác và san sẻ cùng bé một phần nào những khó khăn đó. Anh biết, nếu không phải anh thì rồi cũng sẽ có một người khác bên cạnh bé. Anh cũng biết rằng đã nhiều lần làm bé buồn, nhưng tình cảm anh dành cho bé thì chưa bao giờ là giả dối. Suốt gần 5 năm qua, mình đã cùng nhau trải qua biết bao kỷ niệm – có lúc vui, có lúc buồn – nhưng nhìn lại, anh thấy tất cả đều'
+let message2 = 'rất hạnh phúc khi có bé bên cạnh. Anh chỉ mong, sau 18 năm đã đi qua, bé có thể buông bỏ những điều không vui, giữ lại cho mình những ký ức đẹp nhất để bắt đầu một hành trình mới thật tươi sáng.Anh ước mong bé sẽ đạt được những điều tốt đẹp nhất trong tương lai – thành công trong học tập, sự nghiệp, và hạnh phúc bên cạnh người xứng đáng với bé, dù người đó có thể không phải là anh. Dù bé đã lớn, nhưng trong trái tim anh, bé sẽ mãi mãi là em bé của anh.Anh yêu bé! Chúc mừng sinh nhật tuổi 18 thật rực rỡ và hạnh phúc, bé nhé. 🎂💖'
+let message3 = 'Thể lệ : Bé sẽ có 5 câu hỏi trắc nghiệm với 4 phương án, sau khi trả lời xong bé sẽ nhận được 1 phần quà phụ thuộc vào số câu bé trả lời chính xác'
 </script>
 <div id="lala">
 <div class="leuleu">
@@ -237,6 +1078,508 @@ label {
 <p id = "qa4" style="opacity : 0; visibility: hidden;">Là người thích đi show và bắt nạt ngiu</p>
 </div>
 </div>
+<div id="bla"> Cùng nhìn lại 1 chút tuổi 17 của Quỳnh Anh nào</div>
+<div id = "blo">
+    <div id="anh1"> <img src="qa1.jpg"> </div>
+    <div id="anh2"> <img src="qa2.jpg"> </div>
+    <div id="anh3"> <img src="qa3.jpg"> </div>
+    <div id="t9"> 9/2024</div>
+</div>
+<div id="ble">
+    <div id="anh4"> <img src="qa4.jpg"> </div>
+    <div id="anh5"> <img src="qa5.jpg"> </div>
+    <div id="anh6"> <img src="qa6.jpg"> </div>
+    <div id="t10"> 10/2024</div>
+</div>
+<div id="bli">
+  <div id="anh7"><img src="qa7.jpg" ></div>
+  <div id="anh8"><img src="qa8.jpg" ></div>
+  <div id="anh9"><img src="qa9.jpg" ></div>
+  <div id="t11"> 11/2024</div>
+</div>
+<div id="bly">
+  <div id="anh10"><img src="qa10.jpg"></div>
+  <div id="anh11"><img src="qa11.jpg"></div>
+  <div id="anh12"><img src="qa12.jpg"></div>
+  <div id="t12">12/2024</div>
+</div>
+<div id="blt">
+  <div id="anh13"><img src="qa13.jpg"></div>
+  <div id="anh14"><img src="qa14.jpg"></div>
+  <div id="anh15"><img src="qa15.jpg"></div>
+  <div id="t1">01/2025</div>
+</div>
+<div id="mn_02">
+  <div id="anh16"><img src="qa16.jpg"></div>
+  <div id="anh17"><img src="qa17.jpg"></div>
+  <div id="anh18"><img src="qa18.jpg"></div>
+  <div id="t2">02/2025</div>
+</div>
+<div id="mn_03">
+  <div id="anh19"><img src="qa19.jpg"></div>
+  <div id="anh20"><img src="qa20.jpg"></div>
+  <div id="anh21"><img src="qa21.jpg"></div>
+  <div id="t3">03/2025</div>
+</div>
+<div id="mn_04">
+  <div id="anh22"><img src="qa22.jpg"></div>
+  <div id="anh23"><img src="qa23.jpg"></div>
+  <div id="anh24"><img src="qa24.jpg"></div>
+  <div id="t4">04/2025</div>
+</div>
+<div id="mn_05">
+  <div id="anh25"><img src="qa25.jpg"></div>
+  <div id="anh26"><img src="qa26.jpg"></div>
+  <div id="anh27"><img src="qa27.jpg"></div>
+  <div id="t5">05/2025</div>
+</div>
+<div id="mn_06">
+  <div id="anh28"><img src="qa28.jpg"></div>
+  <div id="anh29"><img src="qa29.jpg"></div>
+  <div id="anh30"><img src="qa30.jpg"></div>
+  <div id="t6">06/2025</div>
+</div>
+<div id="mn_07">
+  <div id="anh31"><img src="qa31.jpg"></div>
+  <div id="anh32"><img src="qa32.jpg"></div>
+  <div id="anh33"><img src="qa33.jpg"></div>
+  <div id="t7">07/2025</div>
+</div>
+<div id="tren"></div>
+<div id="duoi"></div>
+<div id="newbackground"></div>
+<div class="book">
+    <div class="page left">
+        <div class="content" id="typingg"></div>
+    </div>
+    <div class="page right">
+        <div class="content" id="typing"></div>
+    </div>
+</div>
+<div id="bv"> Giờ đến chuyên mục trò chơi nào</div>
+<div id="bv1"></div>
+<form id="question">
+
+  <div id="q1" >       
+    <p><strong>Câu 1:</strong> Anh thích cái gì?</p>
+
+    <input type="checkbox" id="do1" name="do" value="Bánh mì">
+    <label for="do1">Bánh mì</label><br>
+
+    <input type="checkbox" id="do2" name="do" value="Gà rán">
+    <label for="do2">Gà rán</label><br>
+
+    <input type="checkbox" id="do3" name="do" value="Bé">
+    <label for="do3">Bé</label><br>
+
+    <input type="checkbox" id="do4" name="do" value="Bim Bim">
+    <label for="do4">Bim Bim</label><br>
+
+    <input type="button" value="Submit" onclick="check1()" 
+           style="margin-top: 10px; padding: 6px 12px; border-radius: 10px; border: none;  cursor: pointer;">
+    <div id="trl" style="margin-top: 10px; font-weight: bold; color: #6faed8;">
+        </div> </div>
+        <div id="q2">       
+  <p><strong>Câu 2:</strong> Anh thích bé lúc nào?</p>
+
+  <input type="checkbox" id="q2_do1" name="do2" value="Ngầu">
+  <label for="q2_do1">Ngầu</label><br>
+
+  <input type="checkbox" id="q2_do2" name="do2" value="Nhõng nhẽo">
+  <label for="q2_do2">Nhõng nhẽo</label><br>
+
+  <input type="checkbox" id="q2_do3" name="do2" value="Cute">
+  <label for="q2_do3">Cute</label><br>
+
+  <input type="checkbox" id="q2_do4" name="do2" value="Bình thường">
+  <label for="q2_do4">Bình thường</label><br>
+
+  <input type="button" value="Submit" onclick="check2()" 
+         style="margin-top: 10px; padding: 6px 12px; border-radius: 10px; border: none;  cursor: pointer;">
+  <div id="trl2" style="margin-top: 10px; font-weight: bold; color: #6faed8;">
+  </div></div>
+  <div id="q3">       
+  <p><strong>Câu 3:</strong> Bé nhớ món quà Giáng Sinh đầu tiên anh tặng cho bé là gì hong?</p>
+
+  <input type="checkbox" id="q3_do1" name="do3" value="Khăn">
+  <label for="q3_do1">Khăn</label><br>
+
+  <input type="checkbox" id="q3_do2" name="do3" value="Mũ">
+  <label for="q3_do2">Mũ</label><br>
+
+  <input type="checkbox" id="q3_do3" name="do3" value="Gấu bông">
+  <label for="q3_do3">Gấu bông</label><br>
+
+  <input type="checkbox" id="q3_do4" name="do3" value="Đồ trang trí">
+  <label for="q3_do4">Đồ trang trí</label><br>
+
+  <input type="button" value="Submit" onclick="check3()" 
+         style="margin-top: 10px; padding: 6px 12px; border-radius: 10px; border: none;cursor: pointer;">
+  <div id="trl3" style="margin-top: 10px; font-weight: bold; color: #6faed8;">
+</div>
+  </div>
+  <div id="q4" style="display:none;">       
+  <p><strong>Câu 4:</strong> Địa điểm hẹn hò phổ biến của mình hồi cấp 2 là ở đâuuu?</p>
+
+  <input type="checkbox" id="q4_do1" name="do4" value="Hành lang">
+  <label for="q4_do1">Hành lang</label><br>
+
+  <input type="checkbox" id="q4_do2" name="do4" value="Công viên">
+  <label for="q4_do2">Công viên</label><br>
+
+  <input type="checkbox" id="q4_do3" name="do4" value="Mixue">
+  <label for="q4_do3">Mixue</label><br>
+
+  <input type="checkbox" id="q4_do4" name="do4" value="TTTM">
+  <label for="q4_do4">TTTM</label><br>
+
+  <input type="button" value="Submit" onclick="check4()" 
+         style="margin-top: 10px; padding: 6px 12px; border-radius: 10px; border: none;cursor: pointer;">
+  <div id="trl4" style="margin-top: 10px; font-weight: bold; color: #6faed8;">
+  </div>
+</div>
+<div id="q5" style="display:none; flex-direction: column;">       
+  <p><strong>Câu 5:</strong> Những điểm tốt của anh hoặc những việc tốt mà anh đã làm cho bé 🥰( viết thành đoạn văn tối thiểu 100 chữ)</p>
+
+  <textarea id="answer5" rows="6" cols="50" 
+            style="border-radius: 10px; padding: 10px; border: 1px solid #ccc; font-family: inherit;"></textarea>
+  
+  <p style="margin-top:5px;">Số từ bé viết: <span id="wordCount">0</span></p>
+
+  <input type="button" value="Submit" onclick="check5()" 
+         style="margin-top: 10px; padding: 6px 12px; border-radius: 10px; border: none; cursor: pointer;">
+
+  <div id="trl5" style="margin-top: 10px; font-weight: bold; color: #6faed8;"></div>
+  <input type = "button" onclick="collectAnswers()" value="Hoàn Thành">
+</div>
+</form>
+<script>
+    let t = 0;
+    function check1() {
+        let m = document.getElementsByName("do");
+        let ans = [];
+        for (let i = 0; i < m.length; i++) {
+            if (m[i].checked) {
+                ans.push(m[i].value);
+            }
+        }
+        if (ans.length == 4) {
+            document.getElementById("trl").innerHTML = "Đùng roiiiii";
+            setTimeout(() => {document.getElementById("q1").style.display = "none";
+                document.getElementById("q1").style.transition = "all 2s ease-in-out";
+            document.getElementById("q2").style.display = "flex" }, 3000);
+            t++;
+        }
+        else {
+            document.getElementById("trl").innerHTML = "Sai mất roi, câu trả lời là cả 4";
+            setTimeout(() => {document.getElementById("q1").style.display = "none";
+                document.getElementById("q1").style.transition = "all 2s ease-in-out";
+             document.getElementById("q2").style.display = "flex"}, 3000);
+            
+    
+    }
+}
+function check2() {
+    let m = document.getElementsByName("do2");
+    let ans = [];
+    for (let i = 0; i < m.length; i++) {
+        if (m[i].checked) {
+            ans.push(m[i].value);
+        }
+    }
+
+    if (ans.length == 4) {
+        document.getElementById("trl2").innerHTML = "Chuẩn luôn, anh thích bé mọi lúc 😍";
+        setTimeout(() => {
+            document.getElementById("q2").style.display = "none";
+            document.getElementById("q2").style.transition = "all 2s ease-in-out";
+            document.getElementById("q3").style.display = "flex";
+        }, 3000);
+        t++;
+    } else {
+        document.getElementById("trl2").innerHTML = "Sai mất rồi, đáp án đúng là cả 4 🥰";
+        setTimeout(() => {
+            document.getElementById("q2").style.display = "none";
+            document.getElementById("q2").style.transition = "all 2s ease-in-out";
+            document.getElementById("q3").style.display = "flex";
+        }, 3000);
+    }
+}
+function check3() {
+    let m = document.getElementsByName("do3");
+    let ans = [];
+    for (let i = 0; i < m.length; i++) {
+        if (m[i].checked) {
+            ans.push(m[i].value);
+        }
+    }
+
+    if (ans.length == 1 && ans[0] === "Mũ") {
+        document.getElementById("trl3").innerHTML = "Đúng rồi bé iu nhớ giỏi quá 🥰";
+        setTimeout(() => {
+            document.getElementById("q3").style.display = "none";
+            document.getElementById("q3").style.transition = "all 2s ease-in-out";
+            document.getElementById("q4").style.display = "flex";
+        }, 3000);
+        t++;
+    } else {
+        document.getElementById("trl3").innerHTML = "Sai mất rùi 😝, đáp án đúng là Mũ 🎁";
+        setTimeout(() => {
+            document.getElementById("q3").style.display = "none";
+            document.getElementById("q3").style.transition = "all 2s ease-in-out";
+            document.getElementById("q4").style.display = "flex";
+        }, 3000);
+    }
+}
+function check4() {
+    let m = document.getElementsByName("do4");
+    let ans = [];
+    for (let i = 0; i < m.length; i++) {
+        if (m[i].checked) {
+            ans.push(m[i].value);
+        }
+    }
+
+    if (ans.length == 1 && ans[0] === "Hành lang") {
+        document.getElementById("trl4").innerHTML = "Chuẩn ròiii 🥰 Hành lang huyền thoại nè!";
+        setTimeout(() => {
+            document.getElementById("q4").style.display = "none";
+            document.getElementById("q4").style.transition = "all 2s ease-in-out";
+            document.getElementById("q5").style.display = "flex";
+        }, 3000);
+        t++;
+    } else {
+        document.getElementById("trl4").innerHTML = "Sai mất rồi 😝, đáp án đúng là Hành lang 🏫";
+        setTimeout(() => {
+            document.getElementById("q4").style.display = "none";
+            document.getElementById("q4").style.transition = "all 2s ease-in-out";
+            document.getElementById("q5").style.display = "flex";
+        }, 3000);
+    }
+}
+document.addEventListener("input", function() {
+    let text = document.getElementById("answer5").value.trim();
+    let words = text.length > 0 ? text.split(/\s+/).length : 0;
+    document.getElementById("wordCount").innerText = words;
+});
+
+function check5() {
+    let ans = document.getElementById("answer5").value.trim();
+    if (ans.length > 99) {
+        document.getElementById("trl5").innerHTML = "Bé viết iu xỉu lun 🥹❤️";
+        t++;
+    } else {
+        document.getElementById("trl5").innerHTML = "Bé chưa viết íu xìu theee 😝";
+    }
+}
+function collectAnswers() {
+    document.getElementById("q5").style.display = "none";
+    document.getElementById("summary").style.opacity = "1";
+    document.getElementById("summary").style.visibility = "visible";
+    document.getElementById("sumary").style.opacity = "1"; 
+    document.getElementById("sumary").style.visibility = "visible";
+    document.getElementById("nutqua").style.opacity = "1";
+    document.getElementById("nutqua").style.visibility = "visible";
+    document.getElementById("nutqua").style.pointerEvents = "auto";
+    document.getElementById("nutqua").style.opacity = "1";
+    document.getElementById("nutqua").style.visibility = "visible";
+    document.getElementById("nutqua").style.pointerEvents = "auto";
+    document.getElementById("gift-box").style.opacity = "1";
+    document.getElementById("gift-box").style.visibility = "visible";
+    let answers = "";
+    let q1 = document.querySelectorAll('input[name="do"]:checked');
+    let ans1 = [];
+    q1.forEach(el => ans1.push(el.value));
+    answers += "Câu 1: " + (ans1.length > 0 ? ans1.join(", ") : "Chưa chọn") + "\n";
+
+    let q2 = document.querySelectorAll('input[name="do2"]:checked');
+    let ans2 = [];
+    q2.forEach(el => ans2.push(el.value));
+    answers += "Câu 2: " + (ans2.length > 0 ? ans2.join(", ") : "Chưa chọn") + "\n";
+    let q3 = document.querySelectorAll('input[name="do3"]:checked');
+    let ans3 = [];
+    q3.forEach(el => ans3.push(el.value));
+    answers += "Câu 3: " + (ans3.length > 0 ? ans3.join(", ") : "Chưa chọn") + "\n";
+
+    let q4 = document.querySelectorAll('input[name="do4"]:checked');
+    let ans4 = [];
+    q4.forEach(el => ans4.push(el.value));
+    answers += "Câu 4: " + (ans4.length > 0 ? ans4.join(", ") : "Chưa chọn") + "\n";
+
+    
+    let q5 = document.getElementById("answer5").value.trim();
+    answers += "Câu 5: " + (q5.length > 0 ? q5 : "Chưa nhập") + "\n";
+
+  
+    document.getElementById("summary").innerText = answers;
+    document.getElementById("sumary").innerText = `Chúc mừng bé đã hoàn thành xong bài quiz với ${t} câu trả lời đúng. Giờ còn 1 bước cuối cùng để nhận được phần quà, bé hãy copy hết đáp án trả lời kia và gửi vào zalo cho anh nha, sau khi gửi thành công, thì ấn nút bên dưới để tiếp tục`;
+}
+function nhanqua() {
+    document.getElementById("nutqua").style.display = "none";
+    document.getElementById("summary").style.display = "none";
+    document.getElementById("sumary").style.display = "none";
+    document.getElementById("gift-box").style.display = "none";
+    document.getElementById("qua1").style.animation = "roixuong 3s ease-in-out 1s forwards";
+    document.getElementById("qua2").style.animation = "roixuong 3s ease-in-out 1s forwards";
+    document.getElementById("qua3").style.animation = "roixuong 3s ease-in-out 1s forwards";
+    document.querySelectorAll(".piece").forEach(piece => {
+        piece.style.animation = "roixuong 3s ease-in-out 1s forwards";
+    });
+}
+function qua11() {
+ 
+    document.getElementById("qua2").style.opacity = "0";
+    document.getElementById("qua2").style.visibility = "hidden";
+    document.getElementById("qua3").style.opacity = "0";
+    document.getElementById("qua3").style.visibility = "hidden";
+
+    let q1 = document.getElementById("qua1");
+    q1.style.transition = "left 2s ease-in-out";
+    q1.style.left = "40%";
+
+   
+    setTimeout(() => {
+        q1.style.background = "#FFFFFF";
+        q1.style.transition = "background 0.5s ease-in-out";
+        q1.style.border = "none";
+
+       
+        q1.querySelectorAll(".top-left").forEach(el => {
+            el.style.zIndex = "400000";
+            el.style.animation = "fly-top-left 5s ease forwards";
+        });
+        q1.querySelectorAll(".top-right").forEach(el => {
+            el.style.zIndex = "400000";
+            el.style.animation = "fly-top-right 5s ease forwards";
+        });
+        q1.querySelectorAll(".bottom-left").forEach(el => {
+            el.style.zIndex = "400000";
+            el.style.animation = "fly-bottom-left 5s ease forwards";
+        });
+        q1.querySelectorAll(".bottom-right").forEach(el => {
+            el.style.zIndex = "400000";
+            el.style.animation = "fly-bottom-right 5s ease forwards";
+        });
+
+       
+        setTimeout(() => {
+            q1.style.opacity = "0";
+            q1.style.pointerEvents = "none";
+            q1.style.background = "transparent";
+        }, 800); 
+    }, 2500);
+
+
+    setTimeout(() => vietchu(ms, "ket", speed), 5000);
+}
+
+function qua22() {
+    document.getElementById("qua1").style.opacity = "0";
+    document.getElementById("qua1").style.visibility = "hidden";
+    document.getElementById("qua3").style.opacity = "0";
+    document.getElementById("qua3").style.visibility = "hidden";
+
+    let q2 = document.getElementById("qua2");
+    q2.style.transition = "left 2s ease-in-out";
+    q2.style.left = "40%";
+
+    setTimeout(() => {
+        q2.style.background = "#FFFFFF";
+        q2.style.transition = "background 0.5s ease-in-out";
+        q2.style.border = "none";
+
+        q2.querySelectorAll(".top-left").forEach(el => {
+            el.style.zIndex = "400000";
+            el.style.animation = "fly-top-left 5s ease forwards";
+        });
+        q2.querySelectorAll(".top-right").forEach(el => {
+            el.style.zIndex = "400000";
+            el.style.animation = "fly-top-right 5s ease forwards";
+        });
+        q2.querySelectorAll(".bottom-left").forEach(el => {
+            el.style.zIndex = "400000";
+            el.style.animation = "fly-bottom-left 5s ease forwards";
+        });
+        q2.querySelectorAll(".bottom-right").forEach(el => {
+            el.style.zIndex = "400000";
+            el.style.animation = "fly-bottom-right 5s ease forwards";
+        });
+
+        setTimeout(() => {
+            q2.style.opacity = "0";
+            q2.style.pointerEvents = "none";
+            q2.style.background = "transparent";
+        }, 800);
+    }, 2500);
+
+    setTimeout(() => vietchu(ms, "ket", speed), 5000);
+}
+
+function qua33() {
+    document.getElementById("qua1").style.opacity = "0";
+    document.getElementById("qua1").style.visibility = "hidden";
+    document.getElementById("qua2").style.opacity = "0";
+    document.getElementById("qua2").style.visibility = "hidden";
+
+    let q3 = document.getElementById("qua3");
+    q3.style.transition = "left 2s ease-in-out";
+    q3.style.left = "40%";
+
+    setTimeout(() => {
+        q3.style.background = "#FFFFFF";
+        q3.style.transition = "background 0.5s ease-in-out";
+        q3.style.border = "none";
+
+        q3.querySelectorAll(".top-left").forEach(el => {
+            el.style.zIndex = "400000";
+            el.style.animation = "fly-top-left 5s ease forwards";
+        });
+        q3.querySelectorAll(".top-right").forEach(el => {
+            el.style.zIndex = "400000";
+            el.style.animation = "fly-top-right 5s ease forwards";
+        });
+        q3.querySelectorAll(".bottom-left").forEach(el => {
+            el.style.zIndex = "400000";
+            el.style.animation = "fly-bottom-left 5s ease forwards";
+        });
+        q3.querySelectorAll(".bottom-right").forEach(el => {
+            el.style.zIndex = "400000";
+            el.style.animation = "fly-bottom-right 5s ease forwards";
+        });
+
+        setTimeout(() => {
+            q3.style.opacity = "0";
+            q3.style.pointerEvents = "none";
+            q3.style.background = "transparent";
+        }, 800);
+    }, 2500);
+
+    setTimeout(() => vietchu(ms, "ket", speed), 5000);
+}
+let ms = "he bé sẽ nhận được 1 món quà đặc biệt từ anh vào ngày bé trở lại từ Hoà Lạc nha.\nCuối cùng anh muốn cảm ơn bé vì  đã dành thời gian ra xem hết những gì anh làm cho bé, anh biết nó không thực sự hay, nhưng nó là tất cả những gì anh có thể làm được vào lúc này, anh mong bé sẽ có 1 ngày sinh nhật thật vui vẻ nha. Yêu béeee 🥰❤️";
+</script>
+<div id ="gift-box">
+<div id="summary" ></div>
+<div id = "sumary"></div> 
+<input type="button" value="Nhận quà" onclick="nhanqua()" id= "nutqua">
+</div>
+<div id="qua1" onclick="qua11()"> 
+<div class="piece top-left"></div>
+<div class="piece top-right"></div>
+<div class="piece bottom-left"></div>
+<div class="piece bottom-right"></div>
+</div>
+<div id="qua2" onclick="qua22()"> 
+<div class="piece top-left"></div>
+<div class="piece top-right"></div>
+<div class="piece bottom-left"></div>
+<div class="piece bottom-right"></div></div>
+<div id="qua3" onclick="qua33()"> 
+<div class="piece top-left"></div>
+<div class="piece top-right"></div>
+<div class="piece bottom-left"></div>
+<div class="piece bottom-right"></div>
+</div>
+<div id = "ket"></div>
 </body>
-
-
+</html>
