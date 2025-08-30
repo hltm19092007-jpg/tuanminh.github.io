@@ -1438,7 +1438,8 @@ function qua11() {
 
    
     setTimeout(() => {
-        q1.style.background = "#FFFFFF";
+         q1.style.pointerEvents = "none";
+         q1.style.background = "transparent";
         q1.style.transition = "background 0.5s ease-in-out";
         q1.style.border = "none";
 
@@ -1459,16 +1460,7 @@ function qua11() {
             el.style.zIndex = "400000";
             el.style.animation = "fly-bottom-right 5s ease forwards";
         });
-
-       
-        setTimeout(() => {
-            q1.style.opacity = "0";
-            q1.style.pointerEvents = "none";
-            q1.style.background = "transparent";
-        }, 800); 
     }, 2500);
-
-
     setTimeout(() => vietchu(ms, "ket", speed), 5000);
 }
 
@@ -1483,7 +1475,8 @@ function qua22() {
     q2.style.left = "40%";
 
     setTimeout(() => {
-        q2.style.background = "#FFFFFF";
+          q2.style.pointerEvents = "none";
+         q2.style.background = "transparent";
         q2.style.transition = "background 0.5s ease-in-out";
         q2.style.border = "none";
 
@@ -1504,11 +1497,6 @@ function qua22() {
             el.style.animation = "fly-bottom-right 5s ease forwards";
         });
 
-        setTimeout(() => {
-            q2.style.opacity = "0";
-            q2.style.pointerEvents = "none";
-            q2.style.background = "transparent";
-        }, 800);
     }, 2500);
 
     setTimeout(() => vietchu(ms, "ket", speed), 5000);
@@ -1525,7 +1513,8 @@ function qua33() {
     q3.style.left = "40%";
 
     setTimeout(() => {
-        q3.style.background = "#FFFFFF";
+         q3.style.pointerEvents = "none";
+         q3.style.background = "transparent";
         q3.style.transition = "background 0.5s ease-in-out";
         q3.style.border = "none";
 
@@ -1545,12 +1534,6 @@ function qua33() {
             el.style.zIndex = "400000";
             el.style.animation = "fly-bottom-right 5s ease forwards";
         });
-
-        setTimeout(() => {
-            q3.style.opacity = "0";
-            q3.style.pointerEvents = "none";
-            q3.style.background = "transparent";
-        }, 800);
     }, 2500);
 
     setTimeout(() => vietchu(ms, "ket", speed), 5000);
@@ -1582,4 +1565,5 @@ let ms = "he bé sẽ nhận được 1 món quà đặc biệt từ anh vào ng
 <div id = "ket"></div>
 </body>
 </html>
+
 
